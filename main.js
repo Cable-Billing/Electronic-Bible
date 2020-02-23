@@ -6,10 +6,14 @@ let win;
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 600,
-        height: 600,
+        width: 1500,
+        height: 1200,
         backgroundColor: '#FFFFFF',
-        icon: `file://${__dirname}/dist/assets/logo.png`
+        icon: url.format({
+            pathname: path.join(__dirname, '/dist/assets/logo.png'),
+            protocol: "file:",
+            slashes: true
+        })
     });
 
     win.loadURL(
