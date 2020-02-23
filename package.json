@@ -1,13 +1,16 @@
 {
   "name": "electronic-bible",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron .",
+    "electron-build": "npm run build && npm run electron"
   },
   "private": true,
   "dependencies": {
