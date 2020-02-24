@@ -21,12 +21,13 @@ export class AppComponent implements OnInit {
     this.readJson.getBooks().subscribe(data => {
       this.books = data;
     });
-  }
 
-  public getChapters(): void {
-    this.readJson.getChapters(this.versionControl.value, this.bookControl.value).subscribe(data => {
-      this.chapters = null;
-      this.chapters = data.chapters;
+    this.bookControl.valueChanges.subscribe(value => {
+      this.readJson.getChapters(this.versionControl.value, value).subscribe(data => {
+        this.chapters = data.chapters;
+        this.chapterControl.setValue("");
+      });
     });
   }
+
 }
