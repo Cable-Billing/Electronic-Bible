@@ -6,8 +6,8 @@ let win;
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 1500,
-        height: 1200,
+        width: 1300,
+        height: 1000,
         backgroundColor: '#FFFFFF',
         icon: url.format({
             pathname: path.join(__dirname, '/dist/assets/logo.png'),

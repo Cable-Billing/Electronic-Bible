@@ -1,0 +1,12 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.main {
+    position: fixed;
+    top: 128px;
+    left: 0;
+    height: calc(100vh - 128px);
+    width: 100vw;
+    overflow-y: scroll;
+}
