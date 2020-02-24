@@ -4,9 +4,14 @@
 
 .main {
     position: fixed;
-    top: 128px;
+    top: 64px;
     left: 0;
-    height: calc(100vh - 128px);
+    height: calc(100vh - 64px);
     width: 100vw;
     overflow-y: scroll;
+}
+
+mat-form-field {
+    margin-left: 10px;
+    margin-right: 10px;
 }

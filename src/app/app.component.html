@@ -1,10 +1,6 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
     <span>Electronic Bible</span>
     <span class="fill-remaining-space"></span>
-    <span>Current Bible Selected: KJV</span>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
     <span>
       <mat-form-field>
         <mat-label>Book</mat-label>
@@ -14,8 +10,18 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>Chapter</mat-label>
+        <mat-select>
+          <mat-option>
+            1
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </span>
-  </mat-toolbar-row>
+    <span class="fill-remaining-space"></span>
+    <span>Current Bible Selected: KJV</span>
+    
 </mat-toolbar>
 
 <div class="main">
