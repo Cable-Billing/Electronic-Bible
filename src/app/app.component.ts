@@ -10,19 +10,22 @@ import { FormControl } from '@angular/forms';
 export class AppComponent implements OnInit {
   public books: any;
   public chapters: any;
-  public version: FormControl = new FormControl('');
+  public bookControl: FormControl = new FormControl('');
+  public chapterControl: FormControl = new FormControl('');
+  public versionControl: FormControl = new FormControl('');
 
   constructor(private readJson: ReadJsonService) {}
 
   ngOnInit(): void {
-    this.version.setValue("kjv");
+    this.versionControl.setValue("kjv");
     this.readJson.getBooks().subscribe(data => {
       this.books = data;
     });
   }
 
-  public getChapters(book: string): void {
-    this.readJson.getChapters(this.version.value, book).subscribe(data => {
+  public getChapters(): void {
+    this.readJson.getChapters(this.versionControl.value, this.bookControl.value).subscribe(data => {
+      this.chapters = null;
       this.chapters = data.chapters;
     });
   }
