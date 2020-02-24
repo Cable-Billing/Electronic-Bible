@@ -14,4 +14,5 @@
 mat-form-field {
     margin-left: 10px;
     margin-right: 10px;
+    height: 0;
 }
