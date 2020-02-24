@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   public bookControl: FormControl = new FormControl('');
   public chapterControl: FormControl = new FormControl('');
   public versionControl: FormControl = new FormControl('');
+  public chapterLoaded: boolean = false;
+  public chapterData: any;
 
   constructor(private readJson: ReadJsonService) {}
 
@@ -26,8 +28,16 @@ export class AppComponent implements OnInit {
       this.readJson.getChapters(this.versionControl.value, value).subscribe(data => {
         this.chapters = data.chapters;
         this.chapterControl.setValue("");
+        this.chapterLoaded = false;
       });
     });
-  }
 
+    this.chapterControl.valueChanges.subscribe(value => {
+      if (value !== "") {
+        this.chapterLoaded = true;
+        this.chapterData = this.chapters[value - 1];
+        console.log(this.chapterData);
+      }
+    });
+  }
 }

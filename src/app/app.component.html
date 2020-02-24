@@ -1,7 +1,12 @@
 <mat-toolbar color="primary">
-    <span>Electronic Bible</span>
-    <span class="fill-remaining-space"></span>
     <span>
+      <mat-form-field>
+        <mat-label>Version</mat-label>
+        <mat-select [formControl]="versionControl">
+          <mat-option [value]="'kjv'">KJV</mat-option>
+          <!-- <mat-option [value]="'esv'">ESV</mat-option> -->
+        </mat-select>
+      </mat-form-field>
       <mat-form-field>
         <mat-label>Book</mat-label>
         <mat-select [formControl]="bookControl">
@@ -18,23 +23,17 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-raised-button color="accent">
-        <mat-icon>arrow_forward</mat-icon>
-      </button>
     </span>
-    <span class="fill-remaining-space"></span>
-    <span>
-      <mat-form-field>
-        <mat-label>Version</mat-label>
-        <mat-select [formControl]="versionControl">
-          <mat-option [value]="'kjv'">KJV</mat-option>
-          <!-- <mat-option [value]="'esv'">ESV</mat-option> -->
-        </mat-select>
-      </mat-form-field>
-    </span>
-    
 </mat-toolbar>
 
-<div class="main">
-  Main
-</div>
+<ng-container *ngIf="chapterLoaded">
+  <div class="main">
+    <h1>{{ bookControl.value }} Chapter {{ chapterData.chapter }}</h1>
+    <div class="verses">
+      <p *ngFor="let verse of chapterData.verses">
+        <b>{{ chapterData.chapter }}:{{ verse.verse }}</b> {{ verse.text }}
+      </p>
+    </div>
+  </div>
+</ng-container>
+
